@@ -35,6 +35,7 @@
   border-radius: 7px;
   margin: 10px;
 }
+.card-border__player,
 .card-content__inner,
 .card-content-inner__border-top,
 .card-content-inner__border-bottom {
