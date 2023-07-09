@@ -208,4 +208,4 @@ export const Movepool = [
     }
 ]
 
-export default [ Player, Arsenal, Badges, Movepool, Chart ];
+export default Arsenal;
