@@ -3,7 +3,7 @@ import CardsWrapper from "./components/CardsWrapper";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App text-red-900">
       {/* 
       
       */}
