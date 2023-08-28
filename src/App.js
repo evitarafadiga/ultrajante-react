@@ -1,13 +1,12 @@
-import "./App.css";
 import CardsWrapper from "./components/CardsWrapper";
 
 function App() {
   return (
-    <div className="min-h-screen bg-hero-pattern bg-cover text-red-600">
-      <div className="flex align-center justify-center flex-column p-[20px]">
+    <div className="min-h-screen bg-hero-pattern bg-cover text-white">
+      <div className="flex align-center justify-center flex-column w-full h-full p-[20px]">
         <div className="bg-gray-800 rounded-xl p-3 bg-opacity-90">
           <div className="">
-            <CardsWrapper className="" cardsNumber="3" />
+            <CardsWrapper className="card-wrapper" cardsNumber="3" />
           </div>
         </div>
       </div>

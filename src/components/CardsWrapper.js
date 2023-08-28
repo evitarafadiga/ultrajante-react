@@ -14,15 +14,13 @@ const CardsWrapper = ({ cardsNumber }) => {
   }, [scoreArray]);
 
   return (
-    <div className="card-wrapper">
+    <div className="flex flex-wrap align-center justify-center">
       {[...Array(Number(cardNumbers))].map((_numb, index) => {
         index += 1;
 
         return (
           <div>
-            <p className="">
-              Card pts: {scoreArray.score}
-            </p>
+            
             <Card
               key={index}
               id={randomValueFromArray(BetaArsenal).id}
