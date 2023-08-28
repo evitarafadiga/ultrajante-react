@@ -6,6 +6,34 @@ export const Player = [
     }
 ]
 
+export const BetaArsenal = [
+	{
+        id: 0,
+        number: 1,
+		name: "cebollurl",
+        description: "O bolbo faminto por carne",
+		class: ["Flora", "Water"],
+		stats: {hp: 84, atk: 87, def: 100, spe: 59},
+	},
+    {
+        id: 1,
+        number: 5,
+		name: "rasputin",
+        description: "O pairador de águas profundas",
+		class: ["Water"],
+        stats: {hp: 157, atk: 100, def: 168, spe: 100},
+    },
+    {
+        id: 2,
+        number: 7,
+		name: "marry",
+        description: "A drúida ancestral",
+		class: ["Witch"],
+        stats: {hp: 200, atk: 106, def: 100, spe: 119},
+    }
+]
+
+/*
 export const Arsenal = [
 	{
         id: 0,
@@ -96,6 +124,7 @@ export const Arsenal = [
         stats: {hp: 136, atk: 142, def: 93, spe: 154},
     }
 ]
+*/
 
 export const Badges = [
     {
@@ -208,4 +237,4 @@ export const Movepool = [
     }
 ]
 
-export default Arsenal;
+export default BetaArsenal;
