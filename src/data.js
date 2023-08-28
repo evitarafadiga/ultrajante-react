@@ -2,7 +2,7 @@ export const Player = [
     {
         id: 0,
         playername: 'Player 1',
-        border: 'default',
+        border: 'bg-frame-default',
     }
 ]
 
@@ -11,6 +11,7 @@ export const BetaArsenal = [
         id: 0,
         number: 1,
 		name: "cebollurl",
+        splashart: "bg-cebollurl",
         description: "O bolbo faminto por carne",
 		class: ["Flora", "Water"],
 		stats: {hp: 84, atk: 87, def: 100, spe: 59},
@@ -19,6 +20,7 @@ export const BetaArsenal = [
         id: 1,
         number: 5,
 		name: "rasputin",
+        splashart: "bg-rasputin",
         description: "O pairador de águas profundas",
 		class: ["Water"],
         stats: {hp: 157, atk: 100, def: 168, spe: 100},
@@ -27,6 +29,7 @@ export const BetaArsenal = [
         id: 2,
         number: 7,
 		name: "marry",
+        splashart: "bg-marry",
         description: "A drúida ancestral",
 		class: ["Witch"],
         stats: {hp: 200, atk: 106, def: 100, spe: 119},
