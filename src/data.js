@@ -13,8 +13,9 @@ export const BetaArsenal = [
 		name: "cebollurl",
         splashart: "bg-cebollurl",
         description: "O bolbo faminto por carne",
-		class: ["Flora", "Water"],
+		class: ["Flora", "Aqua"],
 		stats: {hp: 84, atk: 87, def: 100, spe: 59},
+        moves: [ 7, 8 ]
 	},
     {
         id: 1,
@@ -22,17 +23,19 @@ export const BetaArsenal = [
 		name: "rasputin",
         splashart: "bg-rasputin",
         description: "O pairador de águas profundas",
-		class: ["Water"],
+		class: ["Aqua"],
         stats: {hp: 157, atk: 100, def: 168, spe: 100},
+        moves: [ 4, 2 ]
     },
     {
         id: 2,
         number: 7,
 		name: "marry",
         splashart: "bg-marry",
-        description: "A drúida ancestral",
-		class: ["Witch"],
+        description: "A druida ancestral",
+		class: ["Bruja"],
         stats: {hp: 200, atk: 106, def: 100, spe: 119},
+        moves: [ 3, 6 ]
     }
 ]
 
@@ -206,37 +209,98 @@ export const Movepool = [
     {
         id: 0,
         name: 'Garra Desoladora',
-        base: 90
+        base: 90,
+        desc: 'Perfura o alvo causando 90 de dano.'
     },
     {
         id: 1,
         name: 'Punho Sinistro',
-        base: 95
+        base: 75,
+        desc: 'Bloqueia 20% do dano recebido e devolve causando 75 de dano.'
     },
     {
         id: 2,
         name: 'Barreira Pungente',
-        base: 120
+        base: 120,
+        desc: 'Consome 30 de vida própria nesse turno e devolve 120 de dano no oponente.',
+        color: 'bg-cyan-600'
     },
     {
         id: 3,
         name: 'Devoção Cáustica',
-        base: 40
+        base: 40,
+        desc: 'Prende o alvo numa corrente de orações causando 40 de dano nesse e no próximo turno.',
+        color: 'bg-red-700'
     },
     {
         id: 4,
         name: 'Lâmina Astral',
-        base: 80
+        base: 80,
+        desc: 'Corta a vítima causando 80 de dano.',
+        color: 'bg-purple-700'
     },
     {
         id: 5,
         name: 'Inferno',
-        base: 60
+        base: 60,
+        desc: 'Queima o alvo a incríveis temperaturas, purificando-o e causando 60 de dano nos próximos dois turnos.',
+        color: 'bg-red-700'
     },
     {
         id: 6,
         name: 'Doce Beberico',
-        base: 70
+        base: 70,
+        desc: 'Poção feita pelos druidas que restaura 60% de vida causando os 40% restantes de dano. Base 70.',
+        color: 'bg-purple-700'
+    },
+    {
+        id: 7,
+        name: 'Cusparada Ácida',
+        base: 40,
+        desc: 'Projétil de cuspo que causa 40 de dano.',
+        color: 'bg-cyan-600'
+    },
+    {
+        id: 8,
+        name: 'Pele de Cebola',
+        base: 30,
+        desc: 'Descamação instantânea que restaura 30 de vida.',
+        color: 'bg-green-700'
+    }
+]
+
+export const Messages = [
+    {
+        id: 0,
+        name: 'Jogue-me...'
+    },
+    {
+        id: 1,
+        name: '⛧ NNNHAAAGW!!? ⛧'
+    },
+    {
+        id: 2,
+        name: ' ⛧ RAAAAAAAH! ⛧'
+    },
+    {
+        id: 3,
+        name: 'Mergulhe na devoção cáustica!'
+    },
+    {
+        id: 4,
+        name: 'H̷͕̙͖͓̍͆̇A̷̧̛̮͉̭̿͑̐̌Ȟ̵͉A̷̲͗͊͊̀͜H̶́̌̐̏͜A̸̛̲̗͈̱͒͒̀̚H̷͕̙͖͓̍͆̇A̷̧̛̮͉̭̿͑̐̌Ȟ̵͉A̷̲͗͊͊̀͜H̶́̌̐̏͜A̸̛̲̗͈̱͒͒̀̚H̷͕̙͖͓̍͆̇A̷̧̛̮͉̭̿͑̐̌Ȟ̵͉A̷̲͗͊͊̀͜H̶́̌̐̏͜A̸̛̲̗͈̱͒͒̀̚H̷͕̙͖͓̍͆̇A̷̧̛̮͉̭̿͑̐̌Ȟ̵͉A̷̲͗͊͊̀͜H̶́̌̐̏͜A̸̛̲̗͈̱͒͒̀̚H̷͕̙͖͓̍͆̇A̷̧̛̮͉̭̿͑̐̌Ȟ̵͉A̷̲͗͊͊̀͜H̶́̌̐̏͜A̸̛̲̗͈̱͒͒̀̚H̷͕̙͖͓̍͆̇A̷̧̛̮͉̭̿͑̐̌Ȟ̵͉A̷̲͗͊͊̀͜H̶́̌̐̏͜A̸̛̲̗͈̱͒͒̀̚!!!'
+    },
+    {
+        id: 5,
+        name: 'Beberique o doce...'
+    },
+    {
+        id: 6,
+        name: 'ψ H̷͕̙͖͓̍͆̇A̷̧̛̮͉̭̿͑̐̌Ȟ̵͉A̷̲͗͊͊̀͜H̶́̌̐̏͜A̸̛̲̗͈̱͒͒̀̚  ψ'
+    },
+    {
+        id: 7,
+        name: 'ψ SINTA O PODER ψ'
     }
 ]
 
