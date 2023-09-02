@@ -9,42 +9,20 @@ import { useAIOpponent } from "./hooks/useAIOpponent";
 import { useTypedMessage } from "./hooks/useTypedMessage";
 import { wait } from "./shared/helpers";
 import { opponentStats, playerStats } from "./shared/characters";
+import { Battle } from "./components/Battle";
 
 function App() {
 
-  const message = 'This is a message';
-  const onGameEnd = '';
-
   const { randomValueFromArray } = useRandom();
-
-  const [mode, setMode] = useState('battle');
-
-  const [sequence, setSequence] = useState({});
-
-  const {
-    turn,
-    inSequence,
-    playerHealth,
-    opponentHealth,
-  } = useBattleSequence(sequence);
-
-  const aiChoice = useAIOpponent(turn);
-  const typedMessage = useTypedMessage(message);
+  
+  const [winner, setWinner] = useState();
+  const [mode, setMode] = useState('start');
 
   useEffect(() => {
-    if (aiChoice && turn === 1 && !inSequence) {
-      setSequence({ turn, mode: aiChoice });
+    if (mode === 'battle') {
+      setWinner(undefined);
     }
-  }, [turn, aiChoice, inSequence]);
-
-  useEffect(() => {
-    if (playerHealth === 0 || opponentHealth === 0) {
-      (async () => {
-        await wait(1000);
-        onGameEnd(playerHealth === 0 ? opponentStats : playerStats);
-      })();
-    }
-  }, [playerHealth, opponentHealth, onGameEnd]);
+  }, [mode]);
 
   return (
     <div>
@@ -63,26 +41,10 @@ function App() {
 
       {mode === 'battle' && <>
         <div className="min-h-screen bg-hero-pattern bg-cover text-white">
-          <div className="px-5 w-screen h-screen py-5 justify-center align-center">
-            <div className="flex align-center justify-center py-[10px]">
-              <Healthbar width={600} datatotal={100} datavalue={100} />
-              <div className="bg-red-800 rounded-xl p-3 bg-opacity-90">
-                <div className="flex justify-end">
-                  <CardsWrapper className="block" cardsNumber="1" arsenal={Enemy} isEnemy={true} />
-                </div>
-                <span>{typedMessage}</span>
-              </div>
-              <div className="absolute px-5 pt-[12rem] pr-[30rem] flex align-center justify-center py-[10px]">
-                <div className="bg-gray-800 rounded-xl p-3 bg-opacity-90">
-                  <Healthbar width={200} datatotal={100} datavalue={100} />
-                  <div className="flex justify-start">
-                    <CardsWrapper className="" cardsNumber="3" arsenal={BetaArsenal} isEnemy={false} />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+          <Battle onGameEnd={winner => {
+            setWinner(winner);
+            setMode('gameOver');
+          }}></Battle>
         </div>
       </>}
 

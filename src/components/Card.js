@@ -3,7 +3,7 @@ import { useBattleSequence } from "../hooks/useBattleSequence.js";
 import { Player, Movepool } from "../shared/data.js";
 import CardButtons from "./CardButtons.js";
 
-const Card = ({ id, playerId, arsenal }) => {
+const Card = ({ id, playerId, arsenal, onAttack }) => {
 
   const [sequence, setSequence] = useState({});
 
@@ -46,7 +46,7 @@ const Card = ({ id, playerId, arsenal }) => {
                 </p>
                 <span className="text-xs text-fuchsia-700">{arsenal[id].description}</span>
                 <div className="hidden group-hover:block">
-                  <CardButtons className="flex" onAttack={() => setSequence({ mode: 'attack', turn })} moveA={Movepool[arsenal[id].moves[0]]} moveB={Movepool[arsenal[id].moves[1]]}></CardButtons>
+                  <CardButtons className="flex" onAttack={onAttack} moveA={Movepool[arsenal[id].moves[0]]} moveB={Movepool[arsenal[id].moves[1]]}></CardButtons>
                 </div>
               </div>
             </div>

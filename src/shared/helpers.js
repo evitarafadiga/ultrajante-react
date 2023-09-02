@@ -1,19 +1,26 @@
 export const wait = ms =>
-    new Promise(resolve => {
-        setTimeout(() => {
-            resolve();
-        }, ms);
-    });
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
 
-export const attack = ({ move, receiver, isCritical = false }) => {
+export const attack = ({ attacker, receiver }) => {
+  const receivedDamage =
+    attacker.attack - (attacker.level - receiver.level) * 1.25;
 
-    const crit = Math.floor(Math.random() * 6);
-    if (crit === 6) isCritical = true;
-    const finalDamage = receiver.hp - move.base * (0,crit);
+  const finalDamage = receivedDamage - receiver.defense / 2;
 
-    return finalDamage, isCritical;
+  return finalDamage;
 };
+export const magic = ({ attacker, receiver }) => {
+  const receivedDamage =
+    attacker.magic - (attacker.level - receiver.level) * 1.25;
 
-export const heal = ({ move, receiver }) => {
-    return move.base + receiver.hp + (0,(Math.floor(Math.random() * 2)));
+  const finalDamage = receivedDamage - receiver.magicDefense / 2;
+
+  return finalDamage;
+};
+export const heal = ({ receiver }) => {
+  return receiver.magic + receiver.level * 0.25;
 };

@@ -7,9 +7,10 @@ export const useBattleSequence = sequence => {
   const [turn, setTurn] = useState(0);
   const [inSequence, setInSequence] = useState(false);
 
-  const [playerHealth, setPlayerHealth] = useState(BetaArsenal[0].stats.hp + BetaArsenal[1].stats.hp + BetaArsenal[2].stats.hp);
+  const [playerHealth, setPlayerHealth] = useState(/*BetaArsenal[0].stats.hp + BetaArsenal[1].stats.hp + BetaArsenal[2].stats.hp*/ playerStats.maxHealth);
   const [opponentHealth, setOpponentHealth] = useState(
-    Enemy[0].stats.hp
+    //Enemy[0].stats.hp
+    opponentStats.maxHealth
   );
 
   const [announcerMessage, setAnnouncerMessage] = useState('');
