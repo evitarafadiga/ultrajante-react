@@ -1,5 +1,4 @@
-import { Player, Movepool } from "../shared/data.js";
-import CardButtons from "./CardButtons.js";
+import { Player } from "../shared/data.js";
 
 const Card = ({ id, playerId, arsenal }) => {
   return (
