@@ -1,21 +1,7 @@
-import { useState } from "react";
-import { useBattleSequence } from "../hooks/useBattleSequence.js";
 import { Player, Movepool } from "../shared/data.js";
 import CardButtons from "./CardButtons.js";
 
-const Card = ({ id, playerId, arsenal, onAttack }) => {
-
-  const [sequence, setSequence] = useState({});
-
-  const {
-    turn,
-    inSequence,
-    playerHealth,
-    opponentHealth,
-    playerAnimation,
-    opponentAnimation,
-    announcerMessage,
-  } = useBattleSequence(sequence);
+const Card = ({ id, playerId, arsenal, onAttack, onHeal }) => {
 
   return (
     <div className="w-[10.1rem] h-[18.1rem] transition-transform hover:-translate-y-5 ease-in-out delay-50 bg-fuchsia-900 rounded-lg m-[10px] border border-black hover:border-slate-200 group">
@@ -46,7 +32,7 @@ const Card = ({ id, playerId, arsenal, onAttack }) => {
                 </p>
                 <span className="text-xs text-fuchsia-700">{arsenal[id].description}</span>
                 <div className="hidden group-hover:block">
-                  <CardButtons className="flex" onAttack={onAttack} moveA={Movepool[arsenal[id].moves[0]]} moveB={Movepool[arsenal[id].moves[1]]}></CardButtons>
+                  <CardButtons className="flex" onAttack={onAttack} onHeal={onHeal} moveA={Movepool[arsenal[id].moves[0]]} moveB={Movepool[arsenal[id].moves[1]]}></CardButtons>
                 </div>
               </div>
             </div>

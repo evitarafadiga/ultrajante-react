@@ -4,7 +4,7 @@ export const BattleAnnouncer = ({ message }) => {
   const typedMessage = useTypedMessage(message);
 
   return (
-    <div className={"text-white font-xl"}>
+    <div className={"font-thin text-white font-xl"}>
       <div className={""}>{typedMessage}</div>
     </div>
   );

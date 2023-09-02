@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { BetaArsenal, Enemy } from '../shared/data';
 import { attack, heal, wait } from '../shared/helpers';
 import { playerStats, opponentStats } from '../shared/characters';
 
@@ -28,15 +27,15 @@ export const useBattleSequence = sequence => {
 
           (async () => {
             setInSequence(true);
-            setAnnouncerMessage(`${attacker.name} has chosen to attack!`);
+            setAnnouncerMessage(`${attacker.name} escolhe atacar!`);
             await wait(1000);
 
             turn === 0
               ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0))
-              : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0)); // We don't want a negative HP.
+              : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0));
             await wait(2000);
 
-            setAnnouncerMessage(`Now it's ${receiver.name} turn!`);
+            setAnnouncerMessage(`Agora é a vez de ${receiver.name}!`);
             await wait(1500);
 
             setTurn(turn === 0 ? 1 : 0);
@@ -51,10 +50,10 @@ export const useBattleSequence = sequence => {
 
           (async () => {
             setInSequence(true);
-            setAnnouncerMessage(`${attacker.name} has chosen to heal!`);
+            setAnnouncerMessage(`${attacker.name} escolhe se curar!`);
             await wait(1000);
 
-            setAnnouncerMessage(`${attacker.name} has recovered health.`);
+            setAnnouncerMessage(`${attacker.name} recuperou a vida.`);
             turn === 0
               ? setPlayerHealth(h =>
                   h + recovered <= attacker.maxHealth
@@ -65,10 +64,10 @@ export const useBattleSequence = sequence => {
                   h + recovered <= attacker.maxHealth
                     ? h + recovered
                     : attacker.maxHealth,
-                ); // We don't want to set HP more than the max
+                ); 
             await wait(2500);
 
-            setAnnouncerMessage(`Now it's ${receiver.name}'s turn!`);
+            setAnnouncerMessage(`Agora é a vez de ${receiver.name}!`);
             await wait(1500);
 
             setTurn(turn === 0 ? 1 : 0);

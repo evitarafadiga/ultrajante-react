@@ -1,22 +1,16 @@
-import CardsWrapper from "./components/CardsWrapper";
 import { useEffect, useState } from "react";
 import useRandom from "./hooks/useRandom";
-import BetaArsenal, { Enemy, Messages } from "./shared/data";
+import { Messages } from "./shared/data";
 import { Topbar } from "./components/TopBar";
-import { Healthbar } from "./components/Healthbar";
-import { useBattleSequence } from "./hooks/useBattleSequence";
-import { useAIOpponent } from "./hooks/useAIOpponent";
-import { useTypedMessage } from "./hooks/useTypedMessage";
-import { wait } from "./shared/helpers";
-import { opponentStats, playerStats } from "./shared/characters";
 import { Battle } from "./components/Battle";
+import { EndMenu } from "./components/EndMenu";
 
 function App() {
 
   const { randomValueFromArray } = useRandom();
   
   const [winner, setWinner] = useState();
-  const [mode, setMode] = useState('start');
+  const [mode, setMode] = useState('battle');
 
   useEffect(() => {
     if (mode === 'battle') {
@@ -48,13 +42,15 @@ function App() {
         </div>
       </>}
 
-      {mode === 'gameOver' && <>
+      {mode === 'gameOver' && !!winner && <>
         <div className="min-h-screen bg-hero-pattern bg-cover text-white">
           <Topbar />
           <div className="flex align-center justify-center flex-column w-full h-full p-[20px]">
             <div className="bg-gray-800 rounded-xl p-3 bg-opacity-90">
               <div className="">
                 GAME OVER
+
+                <EndMenu winner={winner} onStartClick={() => setMode('battle')} />
               </div>
             </div>
           </div>

@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import useRandom from "../hooks/useRandom";
 import { useBattleSequence } from "../hooks/useBattleSequence";
 import { useAIOpponent } from "../hooks/useAIOpponent";
-import { useTypedMessage } from "../hooks/useTypedMessage";
 import { opponentStats, playerStats } from "../shared/characters";
 import { Healthbar } from "./Healthbar";
 import BetaArsenal, { Enemy } from "../shared/data";
@@ -41,49 +39,52 @@ export const Battle = ({ onGameEnd }) => {
     }, [playerHealth, opponentHealth, onGameEnd]);
 
     return (
-        <div className="px-5 w-screen h-screen py-5 justify-center align-center">
-            <div className="flex align-center justify-center py-[10px]">
-                <Healthbar width={300} datatotal={opponentStats.maxHealth} datavalue={opponentHealth} />
-                <div className="bg-red-800 rounded-xl p-3 bg-opacity-90">
+        <div className="flex p-5 justify-center align-center">
+            <div className="pt-[14rem] px-5 flex align-center justify-center">
+                <div className="p-2 bg-gray-800 rounded-xl bg-opacity-90">
+                    <Healthbar hp={playerHealth} maxHp={playerStats.maxHealth} />
+                    <div className="flex justify-start">
+                        <Card
+                            key={0}
+                            id={0}
+                            playerId="0"
+                            arsenal={BetaArsenal}
+                            onAttack={() => setSequence({ mode: 'attack', turn })}
+                            onHeal={() => setSequence({ mode: 'heal', turn })}
+                        />
+                        <Card
+                            key={1}
+                            id={1}
+                            playerId="0"
+                            arsenal={BetaArsenal}
+                            onAttack={() => setSequence({ mode: 'attack', turn })}
+                            onHeal={() => setSequence({ mode: 'heal', turn })}
+                        />
+                        <Card
+                            key={2}
+                            id={2}
+                            playerId="0"
+                            arsenal={BetaArsenal}
+                            onAttack={() => setSequence({ mode: 'attack', turn })}
+                            onHeal={() => setSequence({ mode: 'heal', turn })}
+                        />
+                    </div>
+                    <BattleAnnouncer
+                        message={
+                            announcerMessage || `O que você, ${playerStats.name} fará?`
+                        }
+                    />
+                </div>
+            </div>
+            <div className="pb-[14rem] flex align-center justify-center">
+                <div className="p-2 bg-red-800 rounded-xl bg-opacity-90">
                     <div className="flex justify-end">
+                        <Healthbar hp={opponentHealth} maxHp={opponentStats.maxHealth} />
                         <EnemyCard
                             key={1}
                             id={0}
                             playerId="0"
                             arsenal={Enemy}
-                        />
-                    </div>
-                </div>
-                <div className="absolute px-5 pt-[12rem] pr-[30rem] flex align-center justify-center py-[10px]">
-                    <div className="bg-gray-800 rounded-xl p-3 bg-opacity-90">
-                        <Healthbar width={100} datatotal={playerStats.maxHealth} datavalue={playerHealth} />
-                        <div className="flex justify-start">
-                            <Card
-                                key={0}
-                                id={0}
-                                playerId="0"
-                                arsenal={BetaArsenal}
-                                onAttack={() => setSequence({ mode: 'attack', turn })}
-                            />
-                            <Card
-                                key={1}
-                                id={1}
-                                playerId="0"
-                                arsenal={BetaArsenal}
-                                onAttack={() => setSequence({ mode: 'attack', turn })}
-                            />
-                            <Card
-                                key={2}
-                                id={2}
-                                playerId="0"
-                                arsenal={BetaArsenal}
-                                onAttack={() => setSequence({ mode: 'attack', turn })}
-                            />
-                        </div>
-                        <BattleAnnouncer
-                            message={
-                                announcerMessage || `What will ${playerStats.name} do?`
-                            }
                         />
                     </div>
                 </div>
