@@ -39,6 +39,19 @@ export const BetaArsenal = [
     }
 ]
 
+export const Enemy = [
+    {
+        id: 0,
+        number: 1,
+		name: "marry-Ada",
+        splashart: "bg-marry",
+        description: "O fragmento de bruxaria",
+		class: ["Bruja"],
+        stats: {hp: 1666, atk: 166, def: 666, spe: 199},
+        moves: [ 5, 9 ]
+    }
+]
+
 /*
 export const Arsenal = [
 	{
@@ -266,6 +279,13 @@ export const Movepool = [
         base: 30,
         desc: 'Descamação instantânea que restaura 30 de vida.',
         color: 'bg-green-700'
+    },
+    {
+        id: 9,
+        name: 'Beberico Malígno',
+        base: 90,
+        desc: 'Poção feita pelos druidas que restaura 90% de vida causando os 10% restantes de dano. Base 90.',
+        color: 'bg-purple-700'
     }
 ]
 

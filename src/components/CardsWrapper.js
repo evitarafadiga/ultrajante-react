@@ -1,8 +1,8 @@
 import Card from "./Card";
-import { BetaArsenal } from "../data.js";
+import EnemyCard from "./EnemyCard";
 import useRandom from "../hooks/useRandom.js";
 
-const CardsWrapper = ({ cardsNumber }) => {
+const CardsWrapper = ({ cardsNumber, arsenal, isEnemy }) => {
   const { randomValueFromArray } = useRandom();
   const cardNumbers = cardsNumber;
 
@@ -12,12 +12,24 @@ const CardsWrapper = ({ cardsNumber }) => {
         index += 1;
 
         return (
+          <div>
+          {isEnemy === false && <>
           <Card
             key={index}
-            id={randomValueFromArray(BetaArsenal).id}
+            id={randomValueFromArray(arsenal).id}
             playerId="0"
-            className="group/item"
+            arsenal={arsenal}
           />
+          </>}
+          {isEnemy === true && <>
+            <EnemyCard
+              key={index}
+              id={randomValueFromArray(arsenal).id}
+              playerId="0"
+              arsenal={arsenal}
+              />
+          </>}
+          </div>
         );
       })}
     </div>

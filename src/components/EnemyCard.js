@@ -1,24 +1,9 @@
-import { useState } from "react";
-import { useBattleSequence } from "../hooks/useBattleSequence.js";
 import { Player, Movepool } from "../shared/data.js";
 import CardButtons from "./CardButtons.js";
 
 const Card = ({ id, playerId, arsenal }) => {
-
-  const [sequence, setSequence] = useState({});
-
-  const {
-    turn,
-    inSequence,
-    playerHealth,
-    opponentHealth,
-    playerAnimation,
-    opponentAnimation,
-    announcerMessage,
-  } = useBattleSequence(sequence);
-
   return (
-    <div className="w-[10.1rem] h-[18.1rem] transition-transform hover:-translate-y-5 ease-in-out delay-50 bg-fuchsia-900 rounded-lg m-[10px] border border-black hover:border-slate-200 group">
+    <div className="w-[10.1rem] h-[18.1rem] bg-fuchsia-900 rounded-lg m-[10px] border border-red-500 group">
       <div className={`bg-cover rounded-lg w-[10rem] h-[15rem] ${arsenal[id].splashart}`} alt={arsenal[id].splashart} >
         <div className={`rounded-lg bg-cover w-[10rem] h-[17.8rem] ${Player[playerId].border}`}>
           <div className={`text-xl subpixel-antialiased italic text-white`}>
@@ -46,7 +31,6 @@ const Card = ({ id, playerId, arsenal }) => {
                 </p>
                 <span className="text-xs text-fuchsia-700">{arsenal[id].description}</span>
                 <div className="hidden group-hover:block">
-                  <CardButtons className="flex" onAttack={() => setSequence({ mode: 'attack', turn })} moveA={Movepool[arsenal[id].moves[0]]} moveB={Movepool[arsenal[id].moves[1]]}></CardButtons>
                 </div>
               </div>
             </div>
