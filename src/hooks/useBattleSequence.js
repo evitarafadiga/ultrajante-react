@@ -1,25 +1,23 @@
 import { useEffect, useState } from 'react';
 import { attack, heal, wait } from '../shared/helpers';
-import { playerStats, opponentStats } from '../shared/characters';
+import { cebollurl, rasputin } from '../shared/characters';
 
 export const useBattleSequence = sequence => {
   const [turn, setTurn] = useState(0);
   const [inSequence, setInSequence] = useState(false);
-
-  const [playerHealth, setPlayerHealth] = useState(/*BetaArsenal[0].stats.hp + BetaArsenal[1].stats.hp + BetaArsenal[2].stats.hp*/ playerStats.maxHealth);
-  const [opponentHealth, setOpponentHealth] = useState(
-    //Enemy[0].stats.hp
-    opponentStats.maxHealth
-  );
-
+  const [player, setPlayer] = useState(rasputin);
+  const [opponent, setOpponent] = useState(cebollurl);
+  const [mission, setMission] = useState('');
   const [announcerMessage, setAnnouncerMessage] = useState('');
+  const [playerHealth, setPlayerHealth] = useState(rasputin.maxHealth);
+  const [opponentHealth, setOpponentHealth] = useState(cebollurl.maxHealth);
 
   useEffect(() => {
     const { mode, turn } = sequence;
 
     if (mode) {
-      const attacker = turn === 0 ? playerStats : opponentStats;
-      const receiver = turn === 0 ? opponentStats : playerStats;
+      const attacker = turn === 0 ? player : opponent;
+      const receiver = turn === 0 ? opponent : player;
 
       switch (mode) {
         case 'attack': {
@@ -86,7 +84,9 @@ export const useBattleSequence = sequence => {
   return {
     turn,
     inSequence,
+    player,
     playerHealth,
+    opponent,
     opponentHealth,
     announcerMessage,
   };

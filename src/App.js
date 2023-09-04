@@ -8,9 +8,9 @@ import { EndMenu } from "./components/EndMenu";
 function App() {
 
   const { randomValueFromArray } = useRandom();
-  
+
   const [winner, setWinner] = useState();
-  const [mode, setMode] = useState('start');
+  const [mode, setMode] = useState('battle');
 
   useEffect(() => {
     if (mode === 'battle') {
@@ -35,10 +35,12 @@ function App() {
 
       {mode === 'battle' && <>
         <div className="min-h-screen bg-hero-pattern bg-cover text-white">
-          <Battle onGameEnd={winner => {
-            setWinner(winner);
-            setMode('gameOver');
-          }}></Battle>
+          <Battle
+            onGameEnd={winner => {
+              setWinner(winner);
+              setMode('gameOver');
+            }}
+          />
         </div>
       </>}
 
