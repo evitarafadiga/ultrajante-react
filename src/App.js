@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import useRandom from "./hooks/useRandom";
 import { Messages } from "./shared/data";
-import { Topbar } from "./components/TopBar";
 import { Battle } from "./components/Battle";
 import { EndMenu } from "./components/EndMenu";
 
@@ -46,12 +45,10 @@ function App() {
 
       {mode === 'gameOver' && !!winner && <>
         <div className="min-h-screen bg-hero-pattern bg-cover text-white">
-          <Topbar />
-          <div className="flex align-center justify-center flex-column w-full h-full p-[20px]">
+          <div className="flex align-center justify-center flex-column w-full h-full p-[150px]">
             <div className="bg-gray-800 rounded-xl p-3 bg-opacity-90">
               <div className="">
                 GAME OVER
-
                 <EndMenu winner={winner} onStartClick={() => setMode('battle')} />
               </div>
             </div>

@@ -7,7 +7,7 @@ export const useBattleSequence = sequence => {
   const [inSequence, setInSequence] = useState(false);
   const [player, setPlayer] = useState(rasputin);
   const [opponent, setOpponent] = useState(cebollurl);
-  const [mission, setMission] = useState('');
+  
   const [announcerMessage, setAnnouncerMessage] = useState('');
   const [playerHealth, setPlayerHealth] = useState(rasputin.maxHealth);
   const [opponentHealth, setOpponentHealth] = useState(cebollurl.maxHealth);

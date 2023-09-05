@@ -18,7 +18,7 @@ export const Battle = ({ onGameEnd }) => {
         playerHealth,
         opponent,
         opponentHealth,
-        announcerMessage = '',
+        announcerMessage,
     } = useBattleSequence(sequence);
 
     const aiChoice = useAIOpponent(turn);
@@ -36,7 +36,7 @@ export const Battle = ({ onGameEnd }) => {
                 onGameEnd(playerHealth === 0 ? opponent : player);
             })();
         }
-    }, [playerHealth, opponentHealth, onGameEnd]);
+    }, [playerHealth, player, opponent, opponentHealth, onGameEnd]);
 
     return (
         <div className="flex p-5 justify-center align-center">
@@ -44,19 +44,13 @@ export const Battle = ({ onGameEnd }) => {
                 <div className="p-2 bg-gray-800 rounded-xl bg-opacity-90">
                     <Healthbar hp={playerHealth} maxHp={player.maxHealth} />
                     <div className="flex justify-start">
-                        {/*
-                        {player.map(card => (
-                             */}
-                            <Card
-                                key={player.id}
-                                playerId={0}
-                                champion={player}
-                                onAttack={() => setSequence({ mode: 'attack', turn })}
-                                onHeal={() => setSequence({ mode: 'heal', turn })}
-                            />
-                        {/*
-                        ))}
-                        */}
+                        <Card
+                            key={player.id}
+                            playerId={0}
+                            champion={player}
+                            onAttack={() => setSequence({ mode: 'attack', turn })}
+                            onHeal={() => setSequence({ mode: 'heal', turn })}
+                        />
                     </div>
                     <BattleAnnouncer
                         message={
@@ -69,19 +63,13 @@ export const Battle = ({ onGameEnd }) => {
                 <div className="p-2 bg-red-800 rounded-xl bg-opacity-90">
                     <div className="flex justify-end">
                         <Healthbar hp={opponentHealth} maxHp={opponent.maxHealth} />
-                        {/*
-                        {opponent.map(card => (
-                        */}
-                            <EnemyCard
-                                key={opponent.id}
-                                playerId={0}
-                                champion={opponent}
-                                onAttack={() => setSequence({ mode: 'attack', turn })}
-                                onHeal={() => setSequence({ mode: 'heal', turn })}
-                            />
-                        {/*
-                        ))}
-                        */}
+                        <EnemyCard
+                            key={opponent.id}
+                            playerId={0}
+                            champion={opponent}
+                            onAttack={() => setSequence({ mode: 'attack', turn })}
+                            onHeal={() => setSequence({ mode: 'heal', turn })}
+                        />
                     </div>
                 </div>
             </div>
