@@ -5,8 +5,8 @@ import { cebollurl, rasputin } from '../shared/characters';
 export const useBattleSequence = sequence => {
   const [turn, setTurn] = useState(0);
   const [inSequence, setInSequence] = useState(false);
-  const [player, setPlayer] = useState(rasputin);
-  const [opponent, setOpponent] = useState(cebollurl);
+  const player = rasputin;
+  const opponent= cebollurl;
   
   const [announcerMessage, setAnnouncerMessage] = useState('');
   const [playerHealth, setPlayerHealth] = useState(rasputin.maxHealth);
@@ -79,7 +79,7 @@ export const useBattleSequence = sequence => {
           break;
       }
     }
-  }, [sequence]);
+  }, [sequence, player, opponent]);
 
   return {
     turn,

@@ -9,7 +9,7 @@ function App() {
   const { randomValueFromArray } = useRandom();
 
   const [winner, setWinner] = useState();
-  const [mode, setMode] = useState('battle');
+  const [mode, setMode] = useState('start');
 
   useEffect(() => {
     if (mode === 'battle') {

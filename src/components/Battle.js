@@ -61,8 +61,8 @@ export const Battle = ({ onGameEnd }) => {
             </div>
             <div className="pb-[14rem] flex align-center justify-center">
                 <div className="p-2 bg-red-800 rounded-xl bg-opacity-90">
+                    <Healthbar hp={opponentHealth} maxHp={opponent.maxHealth} />
                     <div className="flex justify-end">
-                        <Healthbar hp={opponentHealth} maxHp={opponent.maxHealth} />
                         <EnemyCard
                             key={opponent.id}
                             playerId={0}
