@@ -1,10 +1,9 @@
-import { Player, Movepool } from "../shared/data.js";
-import CardButtons from "./CardButtons.js";
+import { Player } from "../shared/data.js";
 
-const Card = ({ playerId, champion, onAttack, onHeal }) => {
+const Card = ({ playerId, champion}) => {
 
   return (
-    <div className="w-[10.1rem] h-[18.1rem] transition-transform hover:-translate-y-5 ease-in-out delay-50 bg-fuchsia-900 rounded-lg m-[10px] border border-black hover:border-slate-200 group">
+    <div className="w-[10.1rem] h-[18.1rem] transition-transform hover:-translate-y-1 ease-in-out delay-50 bg-fuchsia-900 rounded-lg m-[10px] border border-black hover:border-green-600 group">
       <div className={`bg-cover rounded-lg w-[10rem] h-[15rem] ${champion.img}`} alt={'Splash art de '+ champion.img} >
         <div className={`rounded-lg bg-cover w-[10rem] h-[17.8rem] ${Player[playerId].border}`}>
           <div className={`text-xl subpixel-antialiased italic text-white`}>
@@ -31,8 +30,7 @@ const Card = ({ playerId, champion, onAttack, onHeal }) => {
                   {champion.class[1]}
                 </p>
                 <span className="text-xs text-fuchsia-700">{champion.description}</span>
-                <div className="hidden group-hover:block">
-                  <CardButtons className="flex" onAttack={onAttack} onHeal={onHeal} moveA={Movepool[champion.moves[0]]} moveB={Movepool[champion.moves[1]]}></CardButtons>
+                <div className="hidden group-hover:block">                  
                 </div>
               </div>
             </div>
