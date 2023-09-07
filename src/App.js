@@ -3,13 +3,21 @@ import useRandom from "./hooks/useRandom";
 import { Messages } from "./shared/data";
 import { Battle } from "./components/Battle";
 import { EndMenu } from "./components/EndMenu";
+import CardsWrapper from "./components/CardsWrapper";
 
 function App() {
 
   const { randomValueFromArray } = useRandom();
 
   const [winner, setWinner] = useState();
-  const [mode, setMode] = useState('start');
+  const [mode, setMode] = useState('select');
+
+  function op(mode, battleOpponent) {
+    console.log('battleOpponent', battleOpponent);
+    console.log('mode', mode);
+    setMode('battle');
+    
+  }
 
   useEffect(() => {
     if (mode === 'battle') {
@@ -26,9 +34,33 @@ function App() {
           <span className="-mt-[34rem] text-bold text-5xl text-yellow-400 fixed">
             {randomValueFromArray(Messages).name}
           </span>
-          <button onClick={() => setMode('battle')} type="button" className="animate-pulse -mt-[20rem] text-bold text-xl w-[200px] h-[80px] bg-gradient-to-r from-red-900 to-red-700 hover:from-pink-500 hover:via-orange-500 hover:to-yellow-500 border-none rounded-xl">
+          <button onClick={() => setMode('select')} type="button" className="animate-pulse -mt-[20rem] text-bold text-xl w-[200px] h-[80px] bg-gradient-to-r from-red-900 to-red-700 hover:from-pink-500 hover:via-orange-500 hover:to-yellow-500 border-none rounded-xl">
             Jogar
           </button>
+        </div>
+      </>}
+
+      {mode === 'select' && <>
+        <div className="min-h-screen bg-hero-pattern bg-cover text-white">
+          <div className="p-5 justify-center flex">
+            <div className="p-2 bg-gray-800 rounded-xl rounded-tr-none bg-opacity-90">
+              <div className="justify-stretch">
+                <div className="flex flex-col p-5 h-[80px]">
+                  <span className="text-bold text-5xl text-yellow-400 fixed">
+                    Selecione um oponente...
+                  </span>
+                </div>
+                <div>
+                  <CardsWrapper 
+                  cardsNumber={4} 
+                  setOpponent={battleOpponent => {
+                    op('battle', battleOpponent);
+                  }} />
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </>}
 

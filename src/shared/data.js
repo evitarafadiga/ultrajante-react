@@ -6,52 +6,6 @@ export const Player = [
     }
 ]
 
-export const BetaArsenal = [
-	{
-        id: 0,
-        number: 1,
-		name: "cebollurl",
-        splashart: "bg-cebollurl",
-        description: "O bolbo faminto por carne",
-		class: ["Flora", "Aqua"],
-		stats: {hp: 84, atk: 87, def: 100, spe: 59},
-        moves: [ 7, 8 ]
-	},
-    {
-        id: 1,
-        number: 5,
-		name: "rasputin",
-        splashart: "bg-rasputin",
-        description: "O pairador de águas profundas",
-		class: ["Aqua"],
-        stats: {hp: 157, atk: 100, def: 168, spe: 100},
-        moves: [ 4, 2 ]
-    },
-    {
-        id: 2,
-        number: 7,
-		name: "marry",
-        splashart: "bg-marry",
-        description: "A druida ancestral",
-		class: ["Bruja"],
-        stats: {hp: 200, atk: 106, def: 100, spe: 119},
-        moves: [ 3, 6 ]
-    }
-]
-
-export const Enemy = [
-    {
-        id: 0,
-        number: 1,
-		name: "marry-Ada",
-        splashart: "bg-marry",
-        description: "O fragmento de bruxaria",
-		class: ["Bruja"],
-        stats: {hp: 1666, atk: 166, def: 666, spe: 199},
-        moves: [ 5, 9 ]
-    }
-]
-
 /*
 export const Arsenal = [
 	{
@@ -339,5 +293,3 @@ export const Messages = [
         name: 'ψ SINTA O PODER ψ'
     }
 ]
-
-export default BetaArsenal;

@@ -13,7 +13,7 @@ export const cebollurl = {
   speed: 59,
 
   description: 'O bolbo faminto por carne',
-  class: ['Flora', 'Aqua'],
+  class: ['Flora', 'Agua'],
   moves: [7, 8, 10]
 };
 
@@ -32,7 +32,7 @@ export const rasputin = {
   speed: 100,
 
   description: "O pairador de águas profundas",
-  class: ["Aqua"],
+  class: ["Agua"],
   moves: [1, 2, 4]
 };
 
@@ -61,7 +61,7 @@ export const marryada = {
   level: 100,
   maxHealth: 222,
   name: 'Marry-Ada',
-  img: 'bg-marry',
+  img: 'bg-marryada',
 
   magic: 122,
   attack: 69,

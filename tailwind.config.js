@@ -11,6 +11,8 @@ module.exports = {
         'cebollurl': "url('/src/assets/splasharts/cebollurl.png')",
         'rasputin': "url('/src/assets/splasharts/rasputin.png')",
         'marry': "url('/src/assets/splasharts/marry.png')",
+        'marryada': "url('/src/assets/splasharts/marryada.png')",
+        'northon': "url('/src/assets/splasharts/northon.png')",
       }
     },
   },

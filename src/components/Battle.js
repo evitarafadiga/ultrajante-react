@@ -9,7 +9,7 @@ import { BattleAnnouncer } from "./BattleAnnouncer";
 import { wait } from "../shared/helpers";
 import { Movepool } from "../shared/data";
 
-export const Battle = ({ onGameEnd}) => {
+export const Battle = ({ onGameEnd }) => {
 
     const [sequence, setSequence] = useState({});
 
