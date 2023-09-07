@@ -9,14 +9,15 @@ function App() {
 
   const { randomValueFromArray } = useRandom();
 
-  const [winner, setWinner] = useState();
+  const [winner, setWinner] = useState('');
   const [mode, setMode] = useState('select');
+  const [battleOpponent, setBattleOpponent] = useState('');
 
   function op(mode, battleOpponent) {
     console.log('battleOpponent', battleOpponent);
     console.log('mode', mode);
     setMode('battle');
-    
+    setBattleOpponent(battleOpponent);
   }
 
   useEffect(() => {
@@ -71,6 +72,7 @@ function App() {
               setWinner(winner);
               setMode('gameOver');
             }}
+            battleOpponent={battleOpponent}
           />
         </div>
       </>}

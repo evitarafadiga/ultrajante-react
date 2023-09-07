@@ -9,7 +9,7 @@ import { BattleAnnouncer } from "./BattleAnnouncer";
 import { wait } from "../shared/helpers";
 import { Movepool } from "../shared/data";
 
-export const Battle = ({ onGameEnd }) => {
+export const Battle = ({ onGameEnd, battleOpponent }) => {
 
     const [sequence, setSequence] = useState({});
 
@@ -18,7 +18,6 @@ export const Battle = ({ onGameEnd }) => {
         inSequence,
         player,
         playerHealth,
-        opponent,
         opponentHealth,
         announcerMessage,
     } = useBattleSequence(sequence);
@@ -35,10 +34,10 @@ export const Battle = ({ onGameEnd }) => {
         if (playerHealth === 0 || opponentHealth === 0) {
             (async () => {
                 await wait(1000);
-                onGameEnd(playerHealth === 0 ? opponent : player);
+                onGameEnd(playerHealth === 0 ? battleOpponent : player);
             })();
         }
-    }, [playerHealth, player, opponent, opponentHealth, onGameEnd]);
+    }, [playerHealth, player, battleOpponent, opponentHealth, onGameEnd]);
 
     return (
         <div className="flex flex-wrap p-5 justify-center align-center">
@@ -65,16 +64,16 @@ export const Battle = ({ onGameEnd }) => {
             <div className="overflow pb-[14rem] flex align-center justify-center">
                 <div className="h-[100px] w-[280px] justify-center align-center p-2 bg-red-800 rounded-xl rounded-r-none bg-opacity-90">
                     <div className="w-[260px] pt-6">
-                    <CardButtons moveA={Movepool[opponent.moves[0]]} moveB={Movepool[opponent.moves[1]]} moveC={Movepool[opponent.moves[2]]}></CardButtons>
+                    <CardButtons moveA={Movepool[battleOpponent.moves[0]]} moveB={Movepool[battleOpponent.moves[1]]} moveC={Movepool[battleOpponent.moves[2]]}></CardButtons>
                     </div>
                 </div>
                 <div className="p-2 bg-red-800 rounded-xl rounded-tl-none bg-opacity-90">
-                    <Healthbar hp={opponentHealth} maxHp={opponent.maxHealth} />
+                    <Healthbar hp={opponentHealth} maxHp={battleOpponent.maxHealth} />
                     <div className="flex justify-center">
                         <EnemyCard
-                            key={opponent.id}
+                            key={battleOpponent.id}
                             playerId={0}
-                            champion={opponent}
+                            champion={battleOpponent}
                             onAttack={() => setSequence({ mode: 'attack', turn })}
                             onHeal={() => setSequence({ mode: 'heal', turn })}
                             onMagic={() => setSequence({ mode: 'magic', turn })}
