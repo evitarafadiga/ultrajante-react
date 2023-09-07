@@ -1,4 +1,4 @@
-export const Topbar = () => {
+export const Topbar = (showTrivia) => {
     return (
 
         <div>
@@ -39,8 +39,9 @@ export const Topbar = () => {
                                         <div>Perfil</div>
                                     </div>
                                 </a>
+                                
                                 <a
-                                    href="/missions" className="py-4 px-2 text-gray-500 hover:border-b-4 border-yellow-500 font-semibold hover:text-cyan-500 transition duration-300">
+                                    href="/" className="py-4 px-2 text-gray-500 hover:border-b-4 border-yellow-500 font-semibold hover:text-cyan-500 transition duration-300" onClick={() => showTrivia}>
                                     <div className="flex align-bottom justify-center">
                                         <div className="m-[5px]">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-joystick" viewBox="0 0 16 16">
@@ -48,12 +49,10 @@ export const Topbar = () => {
                                                 <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z" />
                                             </svg>
                                         </div>
-                                        <div>Missões</div>
+                                        <div>Trivia</div>
                                     </div>
                                 </a>
-
                                 */}
-
                             </div>
                         </div>
                         {/*

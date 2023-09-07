@@ -1,10 +1,10 @@
-import { Player } from "../shared/data.js";
+import { data } from "../shared/data.js";
 
 const Card = ({ playerId, champion }) => {
   return (
     <div className="w-[10.1rem] h-[18.1rem] bg-fuchsia-900 rounded-lg m-[10px] border border-red-500 group">
       <div className={`bg-cover rounded-lg w-[10rem] h-[15rem] ${champion.img}`} alt={champion.img} >
-        <div className={`rounded-lg bg-cover w-[10rem] h-[17.8rem] ${Player[playerId].border}`}>
+        <div className={`rounded-lg bg-cover w-[10rem] h-[17.8rem] ${data[playerId].border}`}>
           <div className={`text-xl subpixel-antialiased italic text-white`}>
             <div className="flex flex-col justify-between align-center">
               <div className="flex flex-row justify-between">

@@ -1,7 +1,7 @@
 export const cebollurl = {
   id: 0,
   number: 1,
-  level: 100,
+  level: 88,
   maxHealth: 134,
   name: 'Cebollurl',
   img: 'bg-cebollurl',
@@ -20,7 +20,7 @@ export const cebollurl = {
 export const rasputin = {
   id: 1,
   number: 5,
-  level: 74,
+  level: 100,
   maxHealth: 157,
   name: 'Rasputin',
   img: 'bg-rasputin',
@@ -82,11 +82,11 @@ export const northon = {
   name: 'Northon',
   img: 'bg-northon',
 
-  magic: 122,
+  magic: 32,
   attack: 135,
-  defense: 180,
-  magicDefense: 50,
-  speed: 164,
+  defense: 200,
+  magicDefense: 10,
+  speed: 274,
 
   description: 'O dobrador de infernos',
   class: ['Fuego', 'Rey'],

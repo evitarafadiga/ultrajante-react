@@ -7,7 +7,7 @@ import EnemyCard from "./EnemyCard";
 import CardButtons from "./CardButtons";
 import { BattleAnnouncer } from "./BattleAnnouncer";
 import { wait } from "../shared/helpers";
-import { Movepool } from "../shared/data";
+import { movepool } from "../shared/movepool";
 
 export const Battle = ({ onGameEnd, battleOpponent }) => {
 
@@ -57,14 +57,14 @@ export const Battle = ({ onGameEnd, battleOpponent }) => {
                         <BattleAnnouncer className="px-2" message={ announcerMessage || `O que você, ${player.name} fará?`}/>
                     </div>
                     <div className="w-[260px]">
-                    <CardButtons onAttack={() => setSequence({ mode: 'attack', turn })} onHeal={() => setSequence({ mode: 'heal', turn })} onMagic={() => setSequence({ mode: 'magic', turn })} moveA={Movepool[player.moves[0]]} moveB={Movepool[player.moves[1]]} moveC={Movepool[player.moves[2]]}></CardButtons>
+                    <CardButtons onAttack={() => setSequence({ mode: 'attack', turn })} onHeal={() => setSequence({ mode: 'heal', turn })} onMagic={() => setSequence({ mode: 'magic', turn })} moveA={movepool[player.moves[0]]} moveB={movepool[player.moves[1]]} moveC={movepool[player.moves[2]]}></CardButtons>
                     </div>
                 </div>
             </div>
             <div className="overflow pb-[14rem] flex align-center justify-center">
                 <div className="h-[100px] w-[280px] justify-center align-center p-2 bg-red-800 rounded-xl rounded-r-none bg-opacity-90">
                     <div className="w-[260px] pt-6">
-                    <CardButtons moveA={Movepool[battleOpponent.moves[0]]} moveB={Movepool[battleOpponent.moves[1]]} moveC={Movepool[battleOpponent.moves[2]]}></CardButtons>
+                    <CardButtons moveA={movepool[battleOpponent.moves[0]]} moveB={movepool[battleOpponent.moves[1]]} moveC={movepool[battleOpponent.moves[2]]}></CardButtons>
                     </div>
                 </div>
                 <div className="p-2 bg-red-800 rounded-xl rounded-tl-none bg-opacity-90">
