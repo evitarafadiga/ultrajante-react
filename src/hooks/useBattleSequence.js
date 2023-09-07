@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { attack, heal, magic, wait } from '../shared/helpers';
-import { cebollurl, rasputin } from '../shared/characters';
+import { rasputin } from '../shared/characters';
 
-export const useBattleSequence = sequence => {
+export const useBattleSequence = (sequence, battleOpponent) => {
   const [turn, setTurn] = useState(0);
   const [inSequence, setInSequence] = useState(false);
   const player = rasputin;
-  const opponent = cebollurl;
+  const opponent = battleOpponent;
 
   const [announcerMessage, setAnnouncerMessage] = useState('');
   const [playerHealth, setPlayerHealth] = useState(player.maxHealth);

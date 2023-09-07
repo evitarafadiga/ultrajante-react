@@ -10,7 +10,7 @@ function App() {
   const { randomValueFromArray } = useRandom();
 
   const [winner, setWinner] = useState('');
-  const [mode, setMode] = useState('select');
+  const [mode, setMode] = useState('start');
   const [battleOpponent, setBattleOpponent] = useState('');
 
   function op(mode, battleOpponent) {
@@ -44,10 +44,10 @@ function App() {
       {mode === 'select' && <>
         <div className="min-h-screen bg-hero-pattern bg-cover text-white">
           <div className="p-5 justify-center flex">
-            <div className="p-2 bg-gray-800 rounded-xl rounded-tr-none bg-opacity-90">
-              <div className="justify-stretch">
-                <div className="flex flex-col p-5 h-[80px]">
-                  <span className="text-bold text-5xl text-yellow-400 fixed">
+            <div className="p-2 bg-gray-800 rounded-xl bg-opacity-90">
+              <div className="justify-center">
+                <div className="flex flex-wrap p-5 h-[80px]">
+                  <span className="text-bold text-3xl text-yellow-400 fixed">
                     Selecione um oponente...
                   </span>
                 </div>

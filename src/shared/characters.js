@@ -85,8 +85,8 @@ export const northon = {
   magic: 122,
   attack: 135,
   defense: 180,
-  magicDefense: 109,
-  speed: 105,
+  magicDefense: 50,
+  speed: 164,
 
   description: 'O dobrador de infernos',
   class: ['Fuego', 'Rey'],

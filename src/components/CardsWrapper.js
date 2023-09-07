@@ -3,7 +3,7 @@ import useRandom from "../hooks/useRandom.js";
 import { cebollurl, marry, marryada, northon, rasputin } from "../shared/characters";
 import { SelectButton } from "./SelectButton";
 
-const CardsWrapper = ({ cardsNumber, setOpponent, battleOpponent }) => {
+const CardsWrapper = ({ cardsNumber, setOpponent }) => {
   const { randomValueFromArray } = useRandom();
   const cardNumbers = cardsNumber;
 

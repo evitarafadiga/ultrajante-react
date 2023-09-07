@@ -20,7 +20,7 @@ export const Battle = ({ onGameEnd, battleOpponent }) => {
         playerHealth,
         opponentHealth,
         announcerMessage,
-    } = useBattleSequence(sequence);
+    } = useBattleSequence(sequence, battleOpponent);
 
     const aiChoice = useAIOpponent(turn);
 
