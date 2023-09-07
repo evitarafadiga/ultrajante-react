@@ -53,19 +53,19 @@ export const Battle = ({ onGameEnd}) => {
                         />                        
                     </div>
                 </div>
-                <div className="h-[100px] w-[230px] justify-end align-end p-2 bg-gray-800 rounded-xl rounded-l-none bg-opacity-90">
+                <div className="h-[100px] w-[280px] justify-end align-end p-2 bg-gray-800 rounded-xl rounded-l-none bg-opacity-90">
                     <div className="">
                         <BattleAnnouncer className="px-2" message={ announcerMessage || `O que você, ${player.name} fará?`}/>
                     </div>
-                    <div className="w-[200px] pt-6">
-                    <CardButtons onAttack={() => setSequence({ mode: 'attack', turn })} onHeal={() => setSequence({ mode: 'heal', turn })} moveA={Movepool[player.moves[0]]} moveB={Movepool[player.moves[1]]}></CardButtons>
+                    <div className="w-[260px]">
+                    <CardButtons onAttack={() => setSequence({ mode: 'attack', turn })} onHeal={() => setSequence({ mode: 'heal', turn })} onMagic={() => setSequence({ mode: 'magic', turn })} moveA={Movepool[player.moves[0]]} moveB={Movepool[player.moves[1]]} moveC={Movepool[player.moves[2]]}></CardButtons>
                     </div>
                 </div>
             </div>
             <div className="overflow pb-[14rem] flex align-center justify-center">
-                <div className="h-[100px] w-[230px] justify-center align-center p-2 bg-red-800 rounded-xl rounded-r-none bg-opacity-90">
-                    <div className="w-[200px] pt-6">
-                    <CardButtons moveA={Movepool[opponent.moves[0]]} moveB={Movepool[opponent.moves[1]]}></CardButtons>
+                <div className="h-[100px] w-[280px] justify-center align-center p-2 bg-red-800 rounded-xl rounded-r-none bg-opacity-90">
+                    <div className="w-[260px] pt-6">
+                    <CardButtons moveA={Movepool[opponent.moves[0]]} moveB={Movepool[opponent.moves[1]]} moveC={Movepool[opponent.moves[2]]}></CardButtons>
                     </div>
                 </div>
                 <div className="p-2 bg-red-800 rounded-xl rounded-tl-none bg-opacity-90">
@@ -77,6 +77,7 @@ export const Battle = ({ onGameEnd}) => {
                             champion={opponent}
                             onAttack={() => setSequence({ mode: 'attack', turn })}
                             onHeal={() => setSequence({ mode: 'heal', turn })}
+                            onMagic={() => setSequence({ mode: 'magic', turn })}
                         />
                     </div>
                 </div>

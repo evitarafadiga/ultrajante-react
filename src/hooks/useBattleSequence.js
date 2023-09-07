@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import { attack, heal, wait } from '../shared/helpers';
+import { attack, heal, magic, wait } from '../shared/helpers';
 import { cebollurl, rasputin } from '../shared/characters';
 
 export const useBattleSequence = sequence => {
   const [turn, setTurn] = useState(0);
   const [inSequence, setInSequence] = useState(false);
   const player = rasputin;
-  const opponent= cebollurl;
-  
+  const opponent = cebollurl;
+
   const [announcerMessage, setAnnouncerMessage] = useState('');
-  const [playerHealth, setPlayerHealth] = useState(rasputin.maxHealth);
-  const [opponentHealth, setOpponentHealth] = useState(cebollurl.maxHealth);
+  const [playerHealth, setPlayerHealth] = useState(player.maxHealth);
+  const [opponentHealth, setOpponentHealth] = useState(opponent.maxHealth);
 
   useEffect(() => {
     const { mode, turn } = sequence;
@@ -31,7 +31,7 @@ export const useBattleSequence = sequence => {
             turn === 0
               ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0))
               : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0));
-            await wait(2000);
+            await wait(1000);
 
             setAnnouncerMessage(`Agora é a vez de ${receiver.name}!`);
             await wait(1500);
@@ -54,16 +54,39 @@ export const useBattleSequence = sequence => {
             setAnnouncerMessage(`${attacker.name} recuperou a vida.`);
             turn === 0
               ? setPlayerHealth(h =>
-                  h + recovered <= attacker.maxHealth
-                    ? h + recovered
-                    : attacker.maxHealth,
-                )
+                h + recovered <= attacker.maxHealth
+                  ? h + recovered
+                  : attacker.maxHealth,
+              )
               : setOpponentHealth(h =>
-                  h + recovered <= attacker.maxHealth
-                    ? h + recovered
-                    : attacker.maxHealth,
-                ); 
-            await wait(2500);
+                h + recovered <= attacker.maxHealth
+                  ? h + recovered
+                  : attacker.maxHealth,
+              );
+            await wait(1500);
+
+            setAnnouncerMessage(`Agora é a vez de ${receiver.name}!`);
+            await wait(1500);
+
+            setTurn(turn === 0 ? 1 : 0);
+            setInSequence(false);
+          })();
+
+          break;
+        }
+
+        case 'magic': {
+          const damage = magic({ attacker, receiver });
+
+          (async () => {
+            setInSequence(true);
+            setAnnouncerMessage(`${attacker.name} escolhe um feitiço!`);
+            await wait(1000);
+            
+            turn === 0
+              ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0))
+              : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0));
+            await wait(1500);
 
             setAnnouncerMessage(`Agora é a vez de ${receiver.name}!`);
             await wait(1500);

@@ -222,48 +222,50 @@ export const Movepool = [
     {
         id: 0,
         name: 'Garra Desoladora',
-        base: 90,
-        desc: 'Perfura o alvo causando 90 de dano.'
+        base: 80,
+        desc: 'Perfura o alvo em agonia causando 80 de dano. Causa +10 para cada sequência.',
+        color: 'bg-purple-700'
     },
     {
         id: 1,
         name: 'Punho Sinistro',
-        base: 75,
-        desc: 'Bloqueia 20% do dano recebido e devolve causando 75 de dano.'
+        base: 60,
+        desc: 'Bloqueia 20% do dano recebido e devolve causando 60 de dano.',
+        color: 'bg-purple-700'
     },
     {
         id: 2,
         name: 'Barreira Pungente',
         base: 120,
-        desc: 'Consome 30 de vida própria nesse turno e devolve 120 de dano no oponente.',
+        desc: 'Consome 40 de vida nesse turno e devolve 120 de dano no oponente.',
         color: 'bg-cyan-600'
     },
     {
         id: 3,
         name: 'Devoção Cáustica',
-        base: 40,
-        desc: 'Prende o alvo numa corrente de orações causando 40 de dano nesse e no próximo turno.',
+        base: 90,
+        desc: 'Prende o alvo numa corrente de orações causando 90 de dano mágico.',
         color: 'bg-red-700'
     },
     {
         id: 4,
         name: 'Lâmina Astral',
         base: 80,
-        desc: 'Corta a vítima causando 80 de dano.',
+        desc: 'Corta a vítima causando 80 de dano mágico.',
         color: 'bg-purple-700'
     },
     {
         id: 5,
         name: 'Inferno',
-        base: 60,
-        desc: 'Queima o alvo a incríveis temperaturas, purificando-o e causando 60 de dano nos próximos dois turnos.',
+        base: 75,
+        desc: 'Queima o alvo a incríveis temperaturas, purificando-o e causando 75 de dano.',
         color: 'bg-red-700'
     },
     {
         id: 6,
         name: 'Doce Beberico',
-        base: 70,
-        desc: 'Poção feita pelos druidas que restaura 60% de vida causando os 40% restantes de dano. Base 70.',
+        base: 60,
+        desc: 'Poção druida que restaura 60% de vida causando os 40% restantes de dano.',
         color: 'bg-purple-700'
     },
     {
@@ -284,9 +286,23 @@ export const Movepool = [
         id: 9,
         name: 'Beberico Malígno',
         base: 90,
-        desc: 'Poção feita pelos druidas que restaura 90% de vida causando os 10% restantes de dano. Base 90.',
+        desc: 'Poção proibida que restaura 90% de vida causando os 10% restantes de dano.',
         color: 'bg-purple-700'
-    }
+    },
+    {
+        id: 10,
+        name: 'Cabeçada Fantástica',
+        base: 30,
+        desc: 'Feitiço que causa 30 de dano mágico.',
+        color: 'bg-purple-700'
+    },
+    {
+        id: 11,
+        name: 'Jarra de Fogo Fátuo',
+        base: 60,
+        desc: 'Suco de almas purificadas que recupera 60 de vida.',
+        color: 'bg-red-700'
+    },
 ]
 
 export const Messages = [
@@ -300,7 +316,7 @@ export const Messages = [
     },
     {
         id: 2,
-        name: ' ⛧ RAAAAAAAH! ⛧'
+        name: ' ⛧ '
     },
     {
         id: 3,

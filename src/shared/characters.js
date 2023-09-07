@@ -1,20 +1,20 @@
 export const cebollurl = {
   id: 0,
   number: 1,
-  level: 50,
-  maxHealth: 84,
+  level: 100,
+  maxHealth: 134,
   name: 'Cebollurl',
   img: 'bg-cebollurl',
 
   magic: 44,
-  attack: 87,
+  attack: 187,
   defense: 100,
   magicDefense: 30,
   speed: 59,
 
   description: 'O bolbo faminto por carne',
   class: ['Flora', 'Aqua'],
-  moves: [7, 8]
+  moves: [7, 8, 10]
 };
 
 export const rasputin = {
@@ -33,7 +33,7 @@ export const rasputin = {
 
   description: "O pairador de águas profundas",
   class: ["Aqua"],
-  moves: [4, 2]
+  moves: [1, 2, 4]
 };
 
 export const marry = {
@@ -52,7 +52,7 @@ export const marry = {
 
   description: 'A druida ancestral',
   class: ['Bruja'],
-  moves: [3, 6]
+  moves: [0, 6, 3]
 };
 
 export const marryada = {
@@ -71,5 +71,24 @@ export const marryada = {
 
   description: 'O fragmento de bruxaria',
   class: ['Bruja'],
-  moves: [5, 9]
+  moves: [5, 9, 3]
+};
+
+export const northon = {
+  id: 4,
+  number: 9,
+  level: 100,
+  maxHealth: 200,
+  name: 'Northon',
+  img: 'bg-northon',
+
+  magic: 122,
+  attack: 135,
+  defense: 180,
+  magicDefense: 109,
+  speed: 105,
+
+  description: 'O dobrador de infernos',
+  class: ['Fuego', 'Rey'],
+  moves: [5, 11, 4]
 };

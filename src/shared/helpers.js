@@ -7,7 +7,7 @@ export const wait = ms =>
 
 export const attack = ({ attacker, receiver }) => {
   const receivedDamage =
-    attacker.attack - (attacker.level - receiver.level) * 1.25;
+    attacker.attack - (attacker.level - receiver.level) * 0.1;
 
   const finalDamage = receivedDamage - receiver.defense / 2;
 
@@ -16,7 +16,7 @@ export const attack = ({ attacker, receiver }) => {
 
 export const magic = ({ attacker, receiver }) => {
   const receivedDamage =
-    attacker.magic - (attacker.level - receiver.level) * 1.25;
+    attacker.magic - (attacker.level - receiver.level) * 0.25;
 
   const finalDamage = receivedDamage - receiver.magicDefense / 2;
 
